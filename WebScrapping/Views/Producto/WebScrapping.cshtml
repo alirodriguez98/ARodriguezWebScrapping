@@ -1,0 +1,30 @@
+﻿@model ML.Producto
+@{
+    ViewData["Title"] = "WebScrapping";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="justify-content-center">
+    <h2>Lista de productos</h2>
+</div>
+
+<table class="table table-responsive">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Precio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(ML.Producto producto in Model.Productos)
+        {
+            <tr>
+                <td><img src="@producto.RutaImagen" width="100" height="100"/></td>
+                <td>@producto.Nombre</td>
+                <td>@producto.Precio</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
