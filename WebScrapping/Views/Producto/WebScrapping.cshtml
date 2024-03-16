@@ -8,9 +8,17 @@
     <h2>Lista de productos</h2>
 </div>
 
+<div class="align-content-end">
+    @using (Html.BeginForm("GuardarDatos", "Producto", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {   
+        <input type="submit" class="btn btn-dark" value="Agregar datos a la BD"/>
+    }
+</div>
+
 <table class="table table-responsive">
     <thead>
         <tr>
+            <th>Id Producto</th>
             <th></th>
             <th>Nombre</th>
             <th>Precio</th>
@@ -20,6 +28,7 @@
         @foreach(ML.Producto producto in Model.Productos)
         {
             <tr>
+                <td>@producto.IdProducto</td>
                 <td><img src="@producto.RutaImagen" width="100" height="100"/></td>
                 <td>@producto.Nombre</td>
                 <td>@producto.Precio</td>
